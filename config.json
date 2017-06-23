@@ -1,0 +1,31 @@
+{
+  "locals": {
+    "name": "Steem account creator",
+    "description": "Create a new account on the steem blockchain",
+    "author": "Johan Nordberg",
+    "version": "1.0.0"
+  },
+  "ignore": [
+    "**/.DS_Store",
+    "styles/**/*",
+    "scripts/**/*"
+  ],
+  "browserify": {
+    "debug": true,
+    "watchify": false,
+    "extensions": [".ts"],
+    "plugins": ["tsify"],
+    "staticLibs": ["steem/dist/steem.min"],
+    "staticLibsBundle": true
+  },
+  "stylus": {
+    "include css": true,
+    "dependencies": ["nib"]
+  },
+  "plugins": [
+    "wintersmith-browserify",
+    "wintersmith-livereload",
+    "wintersmith-nunjucks",
+    "wintersmith-stylus"
+  ]
+}

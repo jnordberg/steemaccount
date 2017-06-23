@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div id="no-js">
+    <p>
+      Hello there sailor, looks like your JavaScript is off. No es bueno!
+    </p>
+  </div>
+  <div id="loading">
+    <span></span>
+    <p>Loading...</p>
+  </div>
+  <div id="container">
+    <header>
+      <h1>{{ name }}</h1>
+      {{ contents['info.md'].html }}
+    </header>
+    <section id="form">
+      <form method="post" id="create-account">
+        <p>
+          <label for="creator">Creator account</label>
+          <input type="text" name="creator" id="creator">
+          <span>Your account name without the @ symbol.</span>
+        </p>
+        <p>
+          <label for="wif">Creator key</label>
+          <input type="password" name="wif" id="wif">
+          <span>
+            Your <a href="active_key.png" target="_blank">active key</a>.
+            <em>This key can be used to transfer money out of your account, never give it to a website you don't trust!</em>
+          </span>
+        </p>
+        <p>
+          <label for="username">New account name</label>
+          <input type="text" name="username" id="username">
+          <span>Name of the new account without the @ symbol.</span>
+        </p>
+        <p>
+          <label for="password">New account password</label>
+          <input type="text" name="password" id="password">
+          <span>Strong password for the new account. <a href="#generate-password">Generate.</a></span>
+        </p>
+        <p>
+          <label for="password-repeat">Repeat password</label>
+          <input type="text" name="password-repeat" id="password-repeat">
+          <span>Keep it secret, keep it safe.</span>
+        </p>
+        <p class="submit">
+          <input type="submit" value="Create account">
+        </p>
+      </form>
+      <div id="status"></div>
+    </section>
+    <footer>
+      <p>by <a href="https://steemit.com/@almost-digital">@almost-digital</a></p>
+    </footer>
+  </div>
+{% endblock %}

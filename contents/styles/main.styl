@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow')
+
+@import 'nib'
+normalize-html5()
+
+theme-color = #537ac2
+theme-hue = hue(theme-color)
+theme-color-compl = hue(theme-color, theme-hue + 180deg)
+
+text-color = darken(desaturate(theme-color, 90%), 70%)
+background-color = lighten(desaturate(theme-color-compl, 60%), 95%)
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+@import './typography.styl'
+@import './spinner.styl'
+@import './utils.styl'
+
+body
+  background: background-color
+
+html
+  @media (max-width: 800px)
+    font-size: 14px
+
+a
+  color: theme-color
+  text-decoration: none
+  &, &:visited
+    color: accent-color
+  &:hover
+    text-decoration: underline
+
+input, body
+  font-family: 'Archivo Narrow', sans-serif
+  color: text-color
+
+input
+  @extends .p
+  padding: 0.2em .5em
+  border: 0.1em solid lighten(theme-color, 70%)
+  background-color: white
+  &[type=submit]
+    cursor: pointer
+  &:hover
+    border-color: lighten(theme-color, 40%)
+  &:focus
+    outline: none
+    border-color: theme-color
+  &[disabled]
+    opacity: 0.4
+
+#no-js
+  @extends .flex-center, .fixed-overlay
+  display: none
+  background: background-color
+  .no-js &
+    display: flex
+    z-index: 10
+
+#loading
+  @extends .flex-center, .fixed-overlay
+  background: background-color
+  transition: 300ms ease-out all
+  opacity: 0
+  visibility: hidden
+  font-size: 0.8em
+  p
+    margin: 0
+    padding-top: 2em
+  span
+    display: block
+    width: 3em
+    height: 3em
+    @extends .spinner
+  .loading &
+    opacity: 1
+    visibility: visible
+  .error &
+    span, p
+      display: none
+    &:before
+      content: 'Error: ' attr(data-error)
+
+#container
+  @extends .flex-center
+  min-height: 100vh
+  max-width: 40em
+  padding: 2em
+  margin: 0 auto
+  form
+    p
+      display: flex
+      flex-direction: column
+      label, span
+        padding: 0.25em
+      span
+        font-size: 0.85em
+      input[type=submit]
+        margin-top: 1em
+  #status
+    margin: 2em 0 5em
+  &.error #status
+    color: red
+
+footer
+  margin-top: 4em
+  font-size: 0.85em

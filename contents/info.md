@@ -1,0 +1,2 @@
+
+Account creation costs 6 STEEM, that amount will be deducted from the creator and added to the new account as STEEM POWER. This tool connects directly to the steem network and your private key never leaves your browser, but be vigilant! Always make sure that you are on the right website and connected over HTTPS, or even better, [download the source-code](https://github.com/jnordberg/steemaccount) and run a local copy.
