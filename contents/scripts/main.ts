@@ -1,6 +1,6 @@
 
 import * as bs58 from 'bs58'
-import * as steem from 'steem/dist/steem.min'
+import * as steem from 'steem'
 
 type AssetSymbol = 'STEEM'|'VESTS'
 

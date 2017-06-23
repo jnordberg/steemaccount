@@ -15,7 +15,7 @@
     "watchify": false,
     "extensions": [".ts"],
     "plugins": ["tsify"],
-    "staticLibs": ["steem/dist/steem.min"],
+    "staticLibs": ["steem"],
     "staticLibsBundle": true
   },
   "stylus": {
